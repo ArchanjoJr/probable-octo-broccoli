@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  server:
+    container_name: ITAU_SERVER_APP
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      CATS_API_KEY: '8834fa46-dad4-445a-907f-31fad12a77e4'
+      MONGO_URL: 'mongodb://mongo:27017/itau',
+      API_URL: 'https://api.thecatapi.com/v1',
+    links:
+      - mongo
+
+  mongo:
+    container_name: MONGODB
+    image: 'mongo'
+    ports:
+      - "27017:27017"
