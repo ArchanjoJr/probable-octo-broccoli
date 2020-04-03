@@ -9,7 +9,7 @@ const api = require('./routes');
 const {
   MONGO_API_URL,
   MONGO_CONFIG,
-  METRICS_OPTIONS
+  METRICS_OPTIONS,
 } = require('./config');
 
 const app = express();
@@ -19,16 +19,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // only accept JSON as body
 app.use(bodyParser.json({
-  type: '*/json'
+  type: '*/json',
 }));
 // adding metrics server
 app.use(metrics(METRICS_OPTIONS));
 // adding middleware logs to all requests
 app.use(logger('dev'));
 mongoose.connect(MONGO_API_URL, MONGO_CONFIG, (MongoError) => {
-  if(MongoError) throw MongoError;
+  if (MongoError) throw MongoError;
   console.debug('CONNECTED WITH MONGODB');
-})
+});
 
 // add cors
 app.use(cors());
@@ -38,5 +38,5 @@ app.use(cors());
 app.use('/api', api);
 
 module.exports = {
-  app
+  app,
 };

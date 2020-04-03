@@ -4,7 +4,7 @@ const {
   getAllBreeds,
   getBreed,
   getBreedBytemperament,
-  getBreedByOrigin
+  getBreedByOrigin,
 } = require('../../controller');
 
 const router = Router();

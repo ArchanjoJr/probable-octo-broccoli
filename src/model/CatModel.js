@@ -1,4 +1,4 @@
-const {Schema, model}  = require('mongoose');
+const { Schema, model: Model } = require('mongoose');
 // schema cat for mongoose
 const CatSchema = new Schema({
   id: String,
@@ -7,7 +7,7 @@ const CatSchema = new Schema({
   breed: String,
   temperament: [String],
   description: String,
-  photos: [String]
+  photos: [String],
 });
 
-module.exports = new model('CatModel', CatSchema);
+module.exports = new Model('CatModel', CatSchema);

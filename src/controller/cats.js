@@ -5,6 +5,12 @@ const { Loggly } = require('../util');
 
 const logger = new Loggly();
 
+/**
+ * @description list all cats breeds
+ * @param {Express.Request} Request - EXPRESS DEFAULT REQUEST OBJECT
+ * @param {Express.Response} Response - EXPRESS DEFAULT RESPONSE OBJECT
+ */
+
 const getAllBreeds = async (Request, Response) => {
   try {
     const query = { id: { $exists: true } };
@@ -15,6 +21,13 @@ const getAllBreeds = async (Request, Response) => {
     return ResponseGenerator.ErrorResponse(Error, Response);
   }
 };
+
+/**
+ * @description get all the breed info
+ * @param {Express.Request} Request - EXPRESS DEFAULT REQUEST OBJECT
+ * @param {Express.Response} Response - EXPRESS DEFAULT RESPONSE OBJECT
+ */
+
 const getBreed = async (Request, Response) => {
   try {
     const { params: { breedId: id } } = Request;
@@ -26,6 +39,13 @@ const getBreed = async (Request, Response) => {
     return ResponseGenerator.ErrorResponse(Error, Response);
   }
 };
+
+/**
+ * @description list all  breeds with a specific temperament
+ * @param {Express.Request} Request - EXPRESS DEFAULT REQUEST OBJECT
+ * @param {Express.Response} Response - EXPRESS DEFAULT RESPONSE OBJECT
+ */
+
 const getBreedBytemperament = async (Request, Response) => {
   try {
     const { params: { temperament } } = Request;
@@ -37,6 +57,13 @@ const getBreedBytemperament = async (Request, Response) => {
     return ResponseGenerator.ErrorResponse(Error, Response);
   }
 };
+
+/**
+ * @description list all cats breeds by a specific origin
+ * @param {Express.Request} Request - EXPRESS DEFAULT REQUEST OBJECT
+ * @param {Express.Response} Response - EXPRESS DEFAULT RESPONSE OBJECT
+ */
+
 const getBreedByOrigin = async (Request, Response) => {
   try {
     const { params: { origin } } = Request;

@@ -1,5 +1,5 @@
-const  CatsApi = require('./catsApi');
+const CatsApi = require('./catsApi');
 
 module.exports = {
-  CatsApi
+  CatsApi,
 };
