@@ -14,7 +14,7 @@
     
    4. Run `docker-compose up`
     
-   5. Run `docker ps -a` and note the ID of the Node container
+   5. Run `docker ps -aqf "name=ITAU_SERVER_APP"` and note the ID of the Node container
     
    6. Run `docker exec -it <nodeContainerID> sh` (replace <nodeContainerID> with the proper ID) to sh into the container
     
@@ -22,7 +22,21 @@
     
    8. Type `exit` to leave the sh session
     
-   9. Navigate to http://localhost:3000 to try the api or to localhost:666/metrics to see the metrics execution for the api
+   9. Navigate to http://localhost:3000 to try the api or to localhost:6660/metrics to see the metrics execution for the api
+   
+  or
+   2. Run `sh run.sh`
+   
+   3. Run `docker ps -aqf "name=ITAU_SERVER_APP"` and note the ID of the Node container
+   
+   4. Run `docker exec -it <nodeContainerID> sh` (replace <nodeContainerID> with the proper ID) to sh into the container
+       
+   5. Run `npm run generate-mongo` to seed the MongoDB database
+       
+   6. Type `exit` to leave the sh session
+       
+   7. Navigate to http://localhost:3000 to try the api or to localhost:6660/metrics to see the metrics execution for the api
+   
  ## API
    [API DOCUMENTATION](https://documenter.getpostman.com/view/10126655/SzYaVy4T?version=latest)
    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b5496213dbf511c47691)
@@ -49,7 +63,7 @@
  ### Get a specific Breed
  
  #### Request
- `GET api/v1/cats/breed/`
+ `GET api/v1/cats/breed/{breed_name}`
  
      curl -i -H 'Accept: application/json' localhost:3000/api/v1/cats/breed/abys
  
@@ -85,7 +99,7 @@
  ### Get all breeds with a specific temperament
   
   #### Request
-  `GET api/v1/cats/breed/temperament/temperament_id`
+  `GET api/v1/cats/breed/temperament/{temperament_name}`
   
       curl -i -H 'Accept: application/json' localhost:3000/api/v1/cats/breed/temperament/Friendly
   
@@ -139,7 +153,7 @@
   ### Get all breeds from a specific origin
     
     #### Request
-    `GET api/v1/cats/breed/origin/origin_name`
+    `GET api/v1/cats/breed/origin/{origin_name}`
     
         curl -i -H 'Accept: application/json' localhost:3000/api/v1/cats/breed/origin/Canada
     
@@ -193,7 +207,7 @@
  ```
 ### Architecture
    ![Architecture](https://miro.medium.com/max/2208/1*oaqKLJhk2EkoRy5tycN41w.png)
-   Basically, we have a mongodb cluster running on port 27017, and our server is running on port 3000 and our exposed metrics for the api is running at port 666, all that inside the container.
+   Basically, we have a mongodb cluster running on port 27017, and our server is running on port 3000 and our exposed metrics for the api is running at port 6660, all that inside the container.
     We Then use the Docker Compose Network link to make both Mongo Cluster and Server to communicate to each other :
     ```YAML
     
