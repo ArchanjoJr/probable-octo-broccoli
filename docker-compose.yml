@@ -13,6 +13,8 @@ services:
       MONGO_URL: 'mongodb://mongo:27017/itau',
       API_URL: 'https://api.thecatapi.com/v1',
       METRICS_PORT: 666
+      LOGGLY_TOKEN: "b1d8592c-cf50-4cab-9373-1aee2b9e8162"
+      LOGGLY_SUBDOMAIN: "ArchanjoJr"
     links:
       - mongo
 

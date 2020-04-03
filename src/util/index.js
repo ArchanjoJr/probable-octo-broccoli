@@ -1,8 +1,9 @@
-const { printRoutes } = require('./printAPI');
 const ApiError = require('./ApiError');
-const  ResponseGenerator = require('./ResponseGenerator');
+const ResponseGenerator = require('./ResponseGenerator');
+const Loggly = require('./Loggy');
+
 module.exports = {
-  printRoutes,
   ResponseGenerator,
-  ApiError
+  ApiError,
+  Loggly,
 };
