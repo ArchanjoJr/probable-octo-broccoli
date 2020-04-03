@@ -1,10 +1,10 @@
 # probable-octo-broccoli
 
 ## Table of Contents
- - [Running the Project] (Running)
- - [API Documentation] (API)
- - [File Structure] (Structure)
- - [Logs Examples] (Logs)
+ - [Running the Project](Running)
+ - [API Documentation](API)
+ - [File Structure](Structure)
+ - [Logs Examples](Logs)
  ## Running   
    1. Install Docker for Windows or Docker for Mac [DOCKER INSTALLATION GUIDE](https://docs.docker.com/install/)
     
@@ -22,7 +22,7 @@
     
    8. Type `exit` to leave the sh session
     
-   9. Navigate to http://localhost:3000
+   9. Navigate to http://localhost:3000 to try the api or to localhost:666/metrics to see the metrics execution for the api
  ## API
    [API DOCUMENTATION](https://documenter.getpostman.com/view/10126655/SzYaVy4T?version=latest)
    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b5496213dbf511c47691)
@@ -218,4 +218,4 @@
  ## Logs
    For the LOGS, i decided to go with [Loggy](https://www.loggly.com/), since loggly has a free plan usage and a well documented and highly active community of mainters of their libraries.
    HERE`S A EXAMPLES, SHOWING THE LOGS OF BOTH SERVER AND MONGO_CLUSTER IN REAL-TIME:
-   ![LIVE LOGS]('.images/Screenshot_20.png')
+   ![LIVE LOGS](images/Screenshot_20.png)
