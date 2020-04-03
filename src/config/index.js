@@ -1,4 +1,3 @@
-console.log(process.env)
 module.exports = Object.freeze({
   MONGO_API_URL: process.env.MONGO_URL,
   MONGO_CONFIG: {
@@ -7,5 +6,10 @@ module.exports = Object.freeze({
   },
   CATS_API_KEY: process.env.CATS_API_KEY,
   API_URL: process.env.API_URL,
-  PORT: process.env.PORT || 3000
+  PORT: process.env.PORT || 3000,
+  METRICS_OPTIONS: {
+    port: process.env.METRICS_PORT,
+    decimals: true,
+    header: true
+  }
 });

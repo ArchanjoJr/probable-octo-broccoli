@@ -1,10 +1,8 @@
-const { printRoutes } = require('./util')
-
-const {app, routes} = require('./app');
+const { app } = require('./app');
 const {PORT} = require('./config');
 
 app.listen(PORT, () => {
-  printRoutes(`LOCALHOST:${PORT}`, routes);
+  console.log(`API RUNNING AT PORT: ${PORT}, ON : ${new Date()}`)
 });
 
 module.exports = app;

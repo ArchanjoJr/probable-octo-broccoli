@@ -1,12 +1,15 @@
 const express = require('express');
+const metrics = require('express-metrics');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const logger = require('morgan');
 
 const api = require('./routes');
 const {
   MONGO_API_URL,
   MONGO_CONFIG,
+  METRICS_OPTIONS
 } = require('./config');
 
 const app = express();
@@ -18,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({
   type: '*/json'
 }));
-
+// adding metrics server
+app.use(metrics(METRICS_OPTIONS));
+// adding middleware logs to all requests
+app.use(logger('dev'));
 mongoose.connect(MONGO_API_URL, MONGO_CONFIG, (MongoError) => {
   if(MongoError) throw MongoError;
   console.debug('CONNECTED WITH MONGODB');
@@ -31,18 +37,6 @@ app.use(cors());
 // api routes
 app.use('/api', api);
 
-// function that show all routes of the api
-const routes = [];
-// console.log(api.stack)
-// api.stack.forEach(obj => {
-//   const routeInfo = {
-//     endpoint: obj.route.path,
-//     method: obj.route.stack[0].method
-//   }
-//   routes.push(routeInfo);
-// });
-
 module.exports = {
-  app,
-  routes
+  app
 };

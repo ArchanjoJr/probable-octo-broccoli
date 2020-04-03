@@ -7,10 +7,12 @@ services:
     build: .
     ports:
       - "3000:3000"
+      - "666:666"
     environment:
       CATS_API_KEY: '8834fa46-dad4-445a-907f-31fad12a77e4'
       MONGO_URL: 'mongodb://mongo:27017/itau',
       API_URL: 'https://api.thecatapi.com/v1',
+      METRICS_PORT: 666
     links:
       - mongo
 
