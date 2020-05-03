@@ -44,7 +44,8 @@
    #### Request
     
    `GET api/v1/cats/breed/`
-    curl -i -H 'Accept: application/json' localhost:3000/api/v1/cats/breed
+    
+        curl -i -H 'Accept: application/json' localhost:3000/api/v1/cats/breed
    #### Response
     
         HTTP/1.1 200 OK
@@ -209,7 +210,8 @@
    ![Architecture](https://miro.medium.com/max/2208/1*oaqKLJhk2EkoRy5tycN41w.png)
    Basically, we have a mongodb cluster running on port 27017, and our server is running on port 3000 and our exposed metrics for the api is running at port 6660, all that inside the container.
     We Then use the Docker Compose Network link to make both Mongo Cluster and Server to communicate to each other :
-    ```YAML
+    
+    ```
     
         version: "3"
         services:
