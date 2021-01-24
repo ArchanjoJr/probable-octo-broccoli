@@ -22,7 +22,7 @@
     "growl": "^1.10.5",
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
-    "mquery": "3.2.2",
+    "mquery": "3.2.3",
     "node-loggly-bulk": "^2.2.4",
     "nodemon": "^2.0.2",
     "winston": "^3.2.1",
